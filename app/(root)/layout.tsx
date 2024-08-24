@@ -4,7 +4,8 @@ import "../globals.css";
 
 
 const poppins = Poppins({
-  subsets: ['latin']
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700']
 })
 
 export const metadata: Metadata = {
@@ -19,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+      </head>
       <body className={poppins.className}>{children}</body>
     </html>
   );
