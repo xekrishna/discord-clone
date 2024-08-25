@@ -5,3 +5,13 @@
 body {
 	color: white;
 }
+
+.custom-scrollbar::-webkit-scrollbar{
+	width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb{
+	background-color: hsl(220, 15%, 10%);
+	width: 5px;
+	border-radius: 9999px;
+}
