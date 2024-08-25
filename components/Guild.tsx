@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import { BsPeopleFill, BsPinAngleFill } from 'react-icons/bs'
 import Members from './ui/Members'
+import Chat from './ui/Chat'
 
 const iconProps = "cursor-pointer hover:text-text1 duration-500"
 const labelProps = "absolute left-1/2 transform -translate-x-1/2 top-full mt-2 hidden px-2 py-1 text-sm text-text3 bg-bg3 rounded opacity-0 group-hover:opacity-100 group-hover:block transition-all duration-300"
@@ -26,7 +27,7 @@ const Guild = () => {
           exit={{ width: '100%' }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
-          <nav className='flex justify-between items-center text-text3'>
+          <nav className='flex justify-between items-center text-text3 border-b-2 pb-2 border-b-bg3'>
             <span className='text-lg'>
               <span className='text-2xl text-text4'>#</span> general
             </span>
@@ -45,6 +46,7 @@ const Guild = () => {
               </div>
             </div>
           </nav>
+          <Chat/>
         </motion.section>
       </AnimatePresence>
       
