@@ -6,6 +6,10 @@ body {
 	color: white;
 }
 
+.hide-scrollbar::-webkit-scrollbar{
+	width: 0;
+}
+
 .custom-scrollbar::-webkit-scrollbar{
 	width: 5px;
 }
