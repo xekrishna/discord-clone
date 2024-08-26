@@ -3,7 +3,7 @@ import Guild from '@/components/Guild'
 import Navbar from '@/components/ui/Navbar'
 import React from 'react'
 
-const Page = () => {
+const Page = ({params} : { params: { id: string}}) => {
   return (
     <main className=' bg-bg2 max-h-[100vh] h-[100vh] px-3 flex flex-col w-[100vw] gap-1'>
       <nav>
@@ -14,7 +14,7 @@ const Page = () => {
         <Navbar/>
       </section>
       <section className=''>
-        <Channel/>
+        <Channel channelId={parseInt(params.id)}/>
       </section>
       <section>
         <Guild/>
