@@ -4,7 +4,7 @@ import { userData, serverData, PlusIcon, DiscordIcon } from "@/constants/data";
 
 const iconProps =
   "h-12 w-12 transition-all hover:text-white hover:rounded-lg rounded-3xl duration-300 cursor-pointer";
-const labelProps = "absolute left-1/2 transform -translate-x-1/2 top-full mt-2 px-2 py-1 text-sm text-text3 bg-bg3 rounded opacity-0 group-hover:opacity-100 group-hover:block transition-all duration-300 z-50"
+const labelProps = "absolute left-16 transform -translate-y-1/2 top-1/2 px-2 py-1 text-sm text-text3 bg-bg3 rounded opacity-0 group-hover:opacity-100 group-hover:block transition-all duration-300"
 
 const Navbar = () => {
   return (
@@ -38,7 +38,7 @@ const Navbar = () => {
             {serverData.map((icon) => (
               <div
                 key={icon.id}
-                className="relative flex items-center bg-black"
+                className="relative flex items-center"
               >
                 <Image
                   src={icon.src}
