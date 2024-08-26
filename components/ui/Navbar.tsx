@@ -12,7 +12,7 @@ const Navbar = () => {
  const router = useRouter()
 
  const handleClick = (id: number) => {
-  router.push(`/channels/${id}`)
+  router.push(`/channels/${id}/${id}11`)
  }
 
 

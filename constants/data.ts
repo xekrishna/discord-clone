@@ -25,7 +25,16 @@ interface Channels {
   id: number;
   name: string;
   description?: string;
-  messages: string
+  messages?: Messages[]
+}
+
+interface Messages {
+  id: number;
+  sender: string;
+  senderName: string;
+  senderAvatar: string
+  message: string;
+  createdAt: string;
 }
 
 export const userData: User[] = [
@@ -43,19 +52,49 @@ export const serverData: Server[] = [
           id: 1,
           name: 'Welcome',
           description: 'well',
-          messages: 'sip sip'
+          messages: [
+            {
+            id:1, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1036082624'
+          },{
+            id:2, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1037082624'
+          },{
+            id:3, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1039082624'
+          },{
+            id:3, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1040082624'
+          },
+        ]
         },
         {
           id: 2,
           name: 'Rules',
           description: 'well',
-          messages: 'sip sip'
+          messages:  [
+            {
+            id:1, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1036082624'
+          },{
+            id:2, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1037082624'
+          },{
+            id:3, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1039082624'
+          },{
+            id:3, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1040082624'
+          },
+        ]
         },
         {
           id: 3,
           name: 'Announcements',
           description: 'well',
-          messages: 'sip sip'
+          messages:  [
+            {
+            id:1, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1036082624'
+          },{
+            id:2, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1037082624'
+          },{
+            id:3, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1039082624'
+          },{
+            id:3, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1040082624'
+          },
+        ]
         }
       ]
     },{
@@ -66,19 +105,49 @@ export const serverData: Server[] = [
           id: 1,
           name: 'Lounge',
           description: 'well',
-          messages: 'sip sip'
+          messages:  [
+            {
+            id:1, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1036082624'
+          },{
+            id:2, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1037082624'
+          },{
+            id:3, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1039082624'
+          },{
+            id:3, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1040082624'
+          },
+        ]
         },
         {
           id: 2,
           name: 'Media',
           description: 'well',
-          messages: 'sip sip'
+          messages: [
+            {
+            id:1, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1036082624'
+          },{
+            id:2, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1037082624'
+          },{
+            id:3, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1039082624'
+          },{
+            id:3, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1040082624'
+          },
+        ]
         },
         {
           id: 3,
           name: 'Memes',
           description: 'well',
-          messages: 'sip sip'
+          messages: [
+            {
+            id:1, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1036082624'
+          },{
+            id:2, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1037082624'
+          },{
+            id:3, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1039082624'
+          },{
+            id:3, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1040082624'
+          },
+        ]
         }
       ]
     }]
@@ -90,10 +159,35 @@ export const serverData: Server[] = [
       channels: [
         {
           id: 1,
-          name: 'Welcome to',
+          name: 'Bleh',
           description: 'well',
-          messages: 'sip sip'
-        }
+          messages: [
+            {
+            id:1, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1036082624'
+          },{
+            id:2, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1037082624'
+          },{
+            id:3, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1039082624'
+          },{
+            id:3, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1040082624'
+          },
+        ]
+        }, {
+          id: 2,
+          name: 'Bleh',
+          description: 'well',
+          messages: [
+            {
+            id:1, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1036082624'
+          },{
+            id:2, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1037082624'
+          },{
+            id:3, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1039082624'
+          },{
+            id:3, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1040082624'
+          },
+        ]
+        },
       ]
     }]
    },
@@ -106,7 +200,17 @@ export const serverData: Server[] = [
           id: 1,
           name: 'Welcome to',
           description: 'well',
-          messages: 'sip sip'
+          messages:  [
+            {
+            id:1, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1036082624'
+          },{
+            id:2, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1037082624'
+          },{
+            id:3, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1039082624'
+          },{
+            id:3, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1040082624'
+          },
+        ]
         }
       ]
     }]
@@ -120,7 +224,17 @@ export const serverData: Server[] = [
           id: 1,
           name: 'Welcome to',
           description: 'well',
-          messages: 'sip sip'
+          messages:  [
+            {
+            id:1, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1036082624'
+          },{
+            id:2, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1037082624'
+          },{
+            id:3, sender: 'xesanzu', senderAvatar: '/avatars/1.jpg', senderName: 'Sanzu', message: 'wassup!!?', createdAt: '1039082624'
+          },{
+            id:3, sender: 'xerumi', senderAvatar: '/avatars/2.jpg', senderName: 'Rumi', message: 'good!?', createdAt: '1040082624'
+          },
+        ]
         }
       ]
     }]
