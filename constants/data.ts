@@ -16,6 +16,7 @@ interface Server  {
 };
 
 interface Categories {
+  id: number;
   name: string;
   channels: Channels[]
 }
@@ -33,13 +34,49 @@ export const userData: User[] = [
 ];
 
 export const serverData: Server[] = [
-  { id: 1, src: "/avatars/1.jpg", serverName: 'Sanzu &apos; shit',
+  { id: 1, src: "/avatars/1.jpg", serverName: "Meow's Paradise",
     categories: [{
-      name: 'Welcome',
+      id: 1,
+      name: 'Onboarding',
       channels: [
         {
           id: 1,
-          name: 'Welcome to',
+          name: 'Welcome',
+          description: 'well',
+          messages: 'sip sip'
+        },
+        {
+          id: 2,
+          name: 'Rules',
+          description: 'well',
+          messages: 'sip sip'
+        },
+        {
+          id: 3,
+          name: 'Announcements',
+          description: 'well',
+          messages: 'sip sip'
+        }
+      ]
+    },{
+      id: 2,
+      name: 'General',
+      channels: [
+        {
+          id: 1,
+          name: 'Lounge',
+          description: 'well',
+          messages: 'sip sip'
+        },
+        {
+          id: 2,
+          name: 'Media',
+          description: 'well',
+          messages: 'sip sip'
+        },
+        {
+          id: 3,
+          name: 'Memes',
           description: 'well',
           messages: 'sip sip'
         }
@@ -48,6 +85,7 @@ export const serverData: Server[] = [
      },
   { id: 2, src: "/avatars/2.jpg", serverName: 'Sanzu &apos; shit',
     categories: [{
+      id:1,
       name: 'Welcome',
       channels: [
         {
@@ -61,6 +99,7 @@ export const serverData: Server[] = [
    },
   { id: 3, src: "/avatars/3.jpg", serverName: 'Sanzu &apos; shit',
     categories: [{
+      id: 1,
       name: 'Welcome',
       channels: [
         {
@@ -74,71 +113,7 @@ export const serverData: Server[] = [
    },
   { id: 4, src: "/avatars/4.jpg", serverName: 'Sanzu &apos; shit',
     categories: [{
-      name: 'Welcome',
-      channels: [
-        {
-          id: 1,
-          name: 'Welcome to',
-          description: 'well',
-          messages: 'sip sip'
-        }
-      ]
-    }]
-   },
-  { id: 5, src: "/avatars/5.jpg", serverName: 'Sanzu &apos; shit',
-    categories: [{
-      name: 'Welcome',
-      channels: [
-        {
-          id: 1,
-          name: 'Welcome to',
-          description: 'well',
-          messages: 'sip sip'
-        }
-      ]
-    }]
-   },
-  { id: 6, src: "/avatars/6.jpg", serverName: 'Sanzu &apos; shit',
-    categories: [{
-      name: 'Welcome',
-      channels: [
-        {
-          id: 1,
-          name: 'Welcome to',
-          description: 'well',
-          messages: 'sip sip'
-        }
-      ]
-    }]
-   },
-  { id: 7, src: "/avatars/7.jpg", serverName: 'Sanzu &apos; shit',
-    categories: [{
-      name: 'Welcome',
-      channels: [
-        {
-          id: 1,
-          name: 'Welcome to',
-          description: 'well',
-          messages: 'sip sip'
-        }
-      ]
-    }]
-   },
-  { id: 8, src: "/avatars/3.jpg", serverName: 'Sanzu &apos; shit',
-    categories: [{
-      name: 'Welcome',
-      channels: [
-        {
-          id: 1,
-          name: 'Welcome to',
-          description: 'well',
-          messages: 'sip sip'
-        }
-      ]
-    }]
-   },
-  { id: 9, src: "/avatars/1.jpg", serverName: 'Sanzu &apos; shit',
-    categories: [{
+      id: 1,
       name: 'Welcome',
       channels: [
         {
