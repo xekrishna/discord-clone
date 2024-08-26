@@ -1,6 +1,7 @@
 import Channel from '@/components/Channel'
 import Guild from '@/components/Guild'
 import Navbar from '@/components/ui/Navbar'
+import User from '@/components/ui/User'
 import React from 'react'
 
 
@@ -22,8 +23,9 @@ const Page = ({params} : {
       <section>
         <Navbar/>
       </section>
-      <section className=''>
+      <section className='flex flex-col gap-4'>
         <Channel id={parseInt(id)} />
+        <User/>
       </section>
       <section>
         <Guild channelId={parseInt(channelId)}/>

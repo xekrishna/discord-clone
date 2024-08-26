@@ -29,7 +29,7 @@ const Guild = ({ channelId }: { channelId: number }) => {
   }
 
   return (
-    <main className='flex w-[76vw] overflow-hidden gap-3'>
+    <main className='flex w-[75vw] overflow-hidden gap-3'>
       {matchedChannel ? (
         <>
           <AnimatePresence>

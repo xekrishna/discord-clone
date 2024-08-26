@@ -1,11 +1,21 @@
 import Channel from '@/components/Channel'
 import Guild from '@/components/Guild'
 import Navbar from '@/components/ui/Navbar'
+import User from '@/components/ui/User'
 import React from 'react'
 
-const Page = ({params} : { params: { id: string}}) => {
+
+
+const Page = ({params} : {
+  params : {id: string, channelId: string},
+}) => {
+  const id = params.id
+  const channelId = params.channelId
+  console.log(channelId)
+  console.log(id)
+
   return (
-    <main className=' bg-bg2 max-h-[100vh] h-[100vh] px-3 flex flex-col w-[100vw] gap-1'>
+<main className=' bg-bg2 max-h-[100vh] h-[100vh] px-3 flex flex-col w-[100vw] gap-1'>
       <nav>
         <span className="font-semibold text-text4">Discord</span>
       </nav>
@@ -13,11 +23,12 @@ const Page = ({params} : { params: { id: string}}) => {
       <section>
         <Navbar/>
       </section>
-      <section className=''>
-        <Channel channelId={parseInt(params.id)}/>
+      <section className='flex flex-col gap-4'>
+        <Channel id={parseInt(id)} />
+        <User/>
       </section>
       <section>
-        <Guild/>
+        <Guild channelId={parseInt(channelId)}/>
       </section>
       </div>
   

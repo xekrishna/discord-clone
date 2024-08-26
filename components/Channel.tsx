@@ -21,7 +21,7 @@ const Channel = ({ id }: ChannelProps) => {
 
 
   return (
-    <main className='bg-bg4 h-[94vh] w-60 rounded-xl py-4 px-5'>
+    <main className='bg-bg4 h-[74vh] w-64 rounded-xl py-4 px-5'>
       
       {server ? (
         <>
