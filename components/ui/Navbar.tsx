@@ -1,12 +1,21 @@
+'use client'
 
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { userData, serverData, PlusIcon, DiscordIcon } from "@/constants/data";
+import Image from "next/image";
 
 const iconProps =
   "h-12 w-12 transition-all hover:text-white hover:rounded-lg rounded-3xl duration-300 cursor-pointer";
 const labelProps = "absolute left-16 transform -translate-y-1/2 top-1/2 px-2 py-1 text-sm text-text3 bg-bg3 rounded opacity-0 group-hover:opacity-100 group-hover:block transition-all duration-300"
 
 const Navbar = () => {
+ const router = useRouter()
+
+ const handleClick = (id: number) => {
+  router.push(`/channels/${id}`)
+ }
+
+
   return (
     <main className="flex flex-col h-[94vh] gap-1 max-h-[100vh] max-w-20 w-20 justify-center items-center">
       <section className="relative flex-1 bg-bg4 h-full w-[90%] max-w-[90%] p-2 rounded-xl overflow-y-auto hide-scrollbar">
@@ -46,6 +55,7 @@ const Navbar = () => {
                   className={iconProps}
                   width={48}
                   height={48}
+                  onClick={()=> handleClick(icon.id)}
                 />
                 {/* Label Display */}
                 <span className={labelProps}>
