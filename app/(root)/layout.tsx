@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "../globals.css";
 
+import { ToastContainer } from "react-toastify";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   description: "A Fully Functional Discord Clone Created by @xekrishna. For more information, visit on github.",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,7 +25,9 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
       </head>
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        {children}
+        </body>
     </html>
   );
 }

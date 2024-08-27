@@ -1,31 +1,29 @@
+// SignupPage.tsx
 "use client"; // Enables client-side rendering
 
 import React, { useState } from 'react';
-import { signupUser } from '@/lib/auth';
 import { useRouter } from 'next/navigation';
+import { handleRegister } from '@/hooks/useAuth';
 
 const SignupPage: React.FC = () => {
+  const [loading, setLoading] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
-  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevents the default form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setError('Passwords do not match');
       return;
     }
 
-    try {
-      const token = await signupUser(email, password);
-      document.cookie = `token=${token}; path=/; HttpOnly; Secure; SameSite=Strict`;
-      router.push('/api/protected-route'); // Redirect to the protected route after successful signup
-    } catch (err) {
-      setError('Failed to create an account. Please try again.');
-    }
+    // Call the register function and pass the router
+    await handleRegister({ email, password, username, setLoading, setError }, router);
   };
 
   return (
@@ -33,13 +31,26 @@ const SignupPage: React.FC = () => {
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-900">Sign Up</h2>
         {error && <p className="text-sm text-red-500">{error}</p>}
-        <form className="space-y-6" onSubmit={handleSignup}>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="space-y-1">
+            <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              className="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-text4"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
           <div className="space-y-1">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
             <input
               type="email"
               id="email"
-              className="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              name="email"
+              className="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-text4"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -50,7 +61,8 @@ const SignupPage: React.FC = () => {
             <input
               type="password"
               id="password"
-              className="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              name="password"
+              className="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-text4"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -61,7 +73,8 @@ const SignupPage: React.FC = () => {
             <input
               type="password"
               id="confirmPassword"
-              className="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              name="confirmPassword"
+              className="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-gray-700"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
@@ -69,9 +82,10 @@ const SignupPage: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className={`w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={loading}
           >
-            Sign Up
+            {loading ? 'Creating Account...' : 'Sign Up'}
           </button>
         </form>
       </div>
