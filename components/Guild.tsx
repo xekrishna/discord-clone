@@ -80,7 +80,10 @@ const Guild = ({ channelId }: { channelId: number }) => {
         </>
       ) : (
         <>
-          <span>Nothing to show here :3</span>
+        <section className={`bg-bg4 h-[94vh] w-full rounded-xl p-2 px-4 flex-shrink-0`}>
+        <span>Nothing to show here :3</span>
+
+        </section>
         </>
       )}
     </main>
