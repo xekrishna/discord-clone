@@ -10,9 +10,20 @@ import { create } from 'zustand'
 import { doc, getDoc } from 'firebase/firestore';
 
 const User = () => {
-    const user = useUserStore()
+    const {currentUser} = useUserStore()
 
-    console.log(user)
+    console.log('user:'+currentUser)
+
+    console.log(auth.currentUser)
+
+    auth.onAuthStateChanged(async user => {
+        if (user) {
+          console.log("user:"+user)
+        }
+        else {
+          console.log("nothing,"+user)
+        }
+      })
 
 
   return (
