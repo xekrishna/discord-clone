@@ -1,4 +1,4 @@
-// hooks/useAuth.ts
+
 import { auth, db } from "@/lib/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
@@ -10,23 +10,23 @@ export const handleRegister = async (
     email,
     password,
     username,
-    setLoading, // Add this to handle loading state in the component
-    setError,   // Add this to handle error state in the component
+    setLoading, 
+    setError,  
   }: {
     email: string;
     password: string;
     username: string;
-    setLoading: Dispatch<SetStateAction<boolean>>; // For managing loading state
-    setError: Dispatch<SetStateAction<string | null>>; // For managing error state
+    setLoading: Dispatch<SetStateAction<boolean>>;
+    setError: Dispatch<SetStateAction<string | null>>;
   },
-  router: ReturnType<typeof useRouter> // Pass the router instance to the function
+  router: ReturnType<typeof useRouter> 
 ) => {
   // Default avatar URL
   const defaultAvatarUrl = './avatar.jpeg';
 
   console.log(username, email, password);
   
-  setLoading(true); // Start loading
+  setLoading(true);
 
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
