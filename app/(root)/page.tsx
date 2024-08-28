@@ -11,11 +11,14 @@ const Page = () => {
     const [userDetails, setUserDetails] = useState<any | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const router = useRouter();
+    
 
     const fetchUserDetails = useCallback(async () => {
         setLoading(true); 
         auth.onAuthStateChanged(async (user) => {
+            console.log('user'+user)
             if (user) {
+                
                 try {
                     const docRef = doc(db, 'users', user.uid);
                     const docSnap = await getDoc(docRef);

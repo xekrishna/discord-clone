@@ -6,9 +6,7 @@ interface User {
   name: string;
   email: string;
   avatarUrl: string;
-
 }
-
 
 export const useUserStore = create<{
   currentUser: User | null;
@@ -19,7 +17,8 @@ export const useUserStore = create<{
   isLoading: true,
   fetchUserInfo: async (uid: string) => {
     if (!uid) {
-      return set({ currentUser: null, isLoading: false });
+      set({ currentUser: null, isLoading: false });
+      return;
     }
 
     try {
@@ -35,5 +34,5 @@ export const useUserStore = create<{
       console.error('Error fetching user data:', error);
       set({ currentUser: null, isLoading: false });
     }
-  },
+  }
 }));
